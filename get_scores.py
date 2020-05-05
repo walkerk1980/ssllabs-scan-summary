@@ -36,9 +36,12 @@ with open(assessment_filename, 'r') as file:
             if [(x) for x in endpoint.get('details').get('protocols') if x.get('name') != 'TLS']:
               print(' WARNING: SSL PROTOCOL supported!')
             good_suites = [
+              'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256',
+              'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384',
               'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256',
               'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384'
-            ]
+              'TLS_DHE_RSA_WITH_AES_128_GCM_SHA256',
+              'TLS_DHE_RSA_WITH_AES_256_GCM_SHA384'            ]
             protocols = [(protocols) for protocols in endpoint.get('details').get('suites')]
             suite_lists = [(suite.get('list')) for suite in protocols][0]
             #print(suite_lists)
